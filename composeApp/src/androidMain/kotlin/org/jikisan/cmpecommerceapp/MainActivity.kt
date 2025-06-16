@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MaterialTheme {
-                MainScreen()
+                App()
             }
         }
     }
@@ -24,5 +24,5 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    MainScreen()
+    App()
 }
