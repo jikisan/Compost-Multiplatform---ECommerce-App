@@ -31,7 +31,7 @@ fun HomeScreen(
 //    viewModel: HomeViewModel = koinViewModel<HomeViewModel>()
 ) {
     Box(
-        modifier.fillMaxSize().padding(top = topPadding), Alignment.Center
+        modifier.fillMaxSize().padding(top = topPadding, start = 4.dp, end = 4.dp), Alignment.Center
     ) {
 
         val productApi = remember { ProductApi() }
