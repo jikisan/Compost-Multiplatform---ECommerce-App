@@ -20,23 +20,25 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jikisan.cmpecommerceapp.view.navigation.NavigationItem
 import org.jikisan.cmpecommerceapp.viewmodel.ProductApi
 import org.jikisan.cmpecommerceapp.viewmodel.ProductRepository
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun HomeScreen(
     navHostController: NavHostController,
     modifier: Modifier,
     topPadding: Dp,
-//    viewModel: HomeViewModel = koinViewModel<HomeViewModel>()
+    viewModel: HomeViewModel = koinViewModel<HomeViewModel>()
 ) {
     Box(
         modifier.fillMaxSize().padding(top = topPadding, start = 4.dp, end = 4.dp), Alignment.Center
     ) {
 
-        val productApi = remember { ProductApi() }
-        val productRepository = remember { ProductRepository(productApi) }
-        val viewModel = remember { HomeViewModel(productRepository) }
+//        val productApi = remember { ProductApi() }
+//        val productRepository = remember { ProductRepository(productApi) }
+//        val viewModel = remember { HomeViewModel(productRepository) }
         val uiState by viewModel.uiState.collectAsState()
 
         if (uiState.isLoading) {
@@ -55,12 +57,14 @@ fun HomeScreen(
                                     Box(modifier = Modifier.weight(1f).padding(4.dp)) {
                                         ProductItemCard(
                                             product = product,
-                                            onAddToCart = {}
+                                            onGoToProduct = { navHostController.navigate(
+                                                NavigationItem.Details.route.replace("{productId}", product.id.toString())
+                                            ) },
                                         )
                                     }
                                 }
                                 // If there's an odd number of items, the last row will have one item.
-                                // Add an empty Box to maintain the two-column structure.
+                                // Add an` empty Box to maintain the two-column structure.
                                 if (products.chunked(2)[rowIndex].size == 1) {
                                     Box(modifier = Modifier.weight(1f)) {}
                                 }

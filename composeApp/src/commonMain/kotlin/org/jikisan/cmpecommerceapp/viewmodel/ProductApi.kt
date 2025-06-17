@@ -11,8 +11,6 @@ class ProductApi {
 
     private val BASE_URL = "https://fakestoreapi.com"
 
-
-
     suspend fun fetchAllProducts(): List<Product> {
         return try {
             createHttpClient().get("$BASE_URL/products").body()
@@ -23,13 +21,23 @@ class ProductApi {
         }
     }
 
-    suspend fun fetchProductById(id: Int): Product? {
+    suspend fun fetchProductById(id: String): Product? {
         return try {
             createHttpClient().get("$BASE_URL/products/$id").body()
         } catch (e: Exception) {
             println("Error fetching product by ID $id: ${e.message}")
             e.printStackTrace()
             null
+        }
+    }
+
+    suspend fun fetchCartItems(): List<Product> {
+        return try {
+            createHttpClient().get("$BASE_URL/carts/1").body()
+        } catch (e: Exception) {
+            println("Error fetching cart items: ${e.message}")
+            e.printStackTrace()
+            emptyList()
         }
     }
 }

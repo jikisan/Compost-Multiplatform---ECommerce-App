@@ -27,6 +27,7 @@ import org.jikisan.cmpecommerceapp.view.navigation.TopBar
 
 @Composable
 fun App() {
+
     MaterialTheme {
 
         // Remember NavController to maintain navigation state
@@ -36,7 +37,8 @@ fun App() {
         val isTopLevelDestination =
             navHostController.currentBackStackEntryAsState().value?.destination?.route in topLevelDestinations.map { it.route }
 
-        val currentRoute = navHostController.currentBackStackEntryAsState().value?.destination?.route
+        val currentRoute =
+            navHostController.currentBackStackEntryAsState().value?.destination?.route
         val showTopBar = currentRoute != NavigationItem.Details.route
 
         // Animate top bar translation (slide up/down)
@@ -105,14 +107,18 @@ fun App() {
                 }
             },
             bottomBar = {
-                BottomNavBar(
-                    navHostController = navHostController,
-                    bottomNavItems = topLevelDestinations,
-                    modifier = Modifier.graphicsLayer {
-                        // Apply translation animation (slide down/up)
-                        translationY = bottomBarTranslationY
-                    }
-                )
+                if (isTopLevelDestination) {
+                    BottomNavBar(
+                        navHostController = navHostController,
+                        bottomNavItems = topLevelDestinations,
+                        modifier = Modifier.graphicsLayer {
+                            // Apply translation animation (slide down/up)
+                            translationY = bottomBarTranslationY
+                        }
+                    )
+                }
+
+
             },
         ) { innerPadding ->
             AppNavigation(

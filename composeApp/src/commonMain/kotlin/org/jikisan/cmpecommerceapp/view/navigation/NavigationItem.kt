@@ -11,14 +11,8 @@ sealed class NavigationItem(
     val title: String,
     val icon: DrawableResource? = null,
 ) {
-//    data object Home : NavigationItem("home", "Home", Icon)
-//    data object NewAndHot : NavigationItem("new", "New & Hot", Icons.Rounded.Whatshot)
-//    data object Shorts : NavigationItem("shorts", "Shorts", Icons.Rounded.SmartDisplay)
-//    data object Settings : NavigationItem("settings", "Settings", Icons.Rounded.Settings)
-//    data object Details : NavigationItem("details/{youtubeId}", "Details", null)
-
     data object Home : NavigationItem("home", "Home", Res.drawable.home_icon)
     data object Cart : NavigationItem("cart", "Cart", Res.drawable.cart_icon)
     data object Settings : NavigationItem("setting", "Settings", Res.drawable.settings_icon)
-    data object Details : NavigationItem("details/{youtubeId}", "Details")
+    data object Details : NavigationItem("details/{productId}", "Details")
 }

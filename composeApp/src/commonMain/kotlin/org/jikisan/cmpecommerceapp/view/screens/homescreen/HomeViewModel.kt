@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.jikisan.cmpecommerceapp.viewmodel.ProductRepository
+import kotlin.math.log
 
 class HomeViewModel(val productRepository: ProductRepository): ViewModel() {
 

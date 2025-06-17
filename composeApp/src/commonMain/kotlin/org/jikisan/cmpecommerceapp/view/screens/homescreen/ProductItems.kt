@@ -1,6 +1,7 @@
 package org.jikisan.cmpecommerceapp.view.screens.homescreen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -42,12 +43,13 @@ import org.jikisan.cmpecommerceapp.model.Rating
 @Composable
 fun ProductItemCard(
     product: Product,
-    onAddToCart: (Product) -> Unit,
+    onGoToProduct: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable(onClick = { onGoToProduct(product) }),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -57,17 +59,6 @@ fun ProductItemCard(
                 .padding(12.dp)
         ) {
             // Product Image
-//            AsyncImage(
-//                model = product.image,
-//                contentDescription = "Product image: ${product.title}",
-//                imageLoader = getImageLoader(),
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(180.dp)
-//                    .clip(RoundedCornerShape(8.dp)),
-//                contentScale = ContentScale.Fit
-//            )
-
             AsyncImage(
                 model = ImageRequest.Builder(LocalPlatformContext.current)
                     .data(product.image)
@@ -173,7 +164,7 @@ fun ProductItemCardPreview() {
                 image = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
                 rating = Rating(rate = 4.5, count = 120)
             ),
-            onAddToCart = {}
+            onGoToProduct = {}
         )
     }
 }
