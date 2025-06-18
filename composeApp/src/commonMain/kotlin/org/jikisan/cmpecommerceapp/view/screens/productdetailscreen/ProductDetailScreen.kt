@@ -28,21 +28,16 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -50,14 +45,12 @@ import cmpecommerceapp.composeapp.generated.resources.Res
 import cmpecommerceapp.composeapp.generated.resources.arrow_back_24px
 import cmpecommerceapp.composeapp.generated.resources.cart_icon
 import cmpecommerceapp.composeapp.generated.resources.compose_multiplatform
-import cmpecommerceapp.composeapp.generated.resources.error_24px
 import cmpecommerceapp.composeapp.generated.resources.favorite_24px
 import cmpecommerceapp.composeapp.generated.resources.star_icon
 import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.painterResource
 import org.jikisan.cmpecommerceapp.model.Product
-import org.jikisan.cmpecommerceapp.view.screens.homescreen.HomeViewModel
-import org.jikisan.cmpecommerceapp.viewmodel.ProductDetailViewModel
+import org.jikisan.cmpecommerceapp.viewmodel.productdetails.ProductDetailViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

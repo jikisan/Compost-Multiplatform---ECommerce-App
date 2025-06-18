@@ -3,6 +3,7 @@ package org.jikisan.cmpecommerceapp.viewmodel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import org.jikisan.cmpecommerceapp.model.CartItem
 import org.jikisan.cmpecommerceapp.model.Product
 
 expect fun createHttpClient(): HttpClient
@@ -31,13 +32,23 @@ class ProductApi {
         }
     }
 
-    suspend fun fetchCartItems(): List<Product> {
+    suspend fun fetchCartItems(): List<CartItem> {
+        return try {
+            createHttpClient().get("$BASE_URL/carts").body()
+        } catch (e: Exception) {
+            println("Error fetching cart items: ${e.message}")
+            e.printStackTrace()
+            emptyList()
+        }
+    }
+
+    suspend fun fetchSingleCartItem(): CartItem? {
         return try {
             createHttpClient().get("$BASE_URL/carts/1").body()
         } catch (e: Exception) {
             println("Error fetching cart items: ${e.message}")
             e.printStackTrace()
-            emptyList()
+            null
         }
     }
 }

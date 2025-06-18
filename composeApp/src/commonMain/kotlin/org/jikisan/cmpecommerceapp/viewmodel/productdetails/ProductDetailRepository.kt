@@ -1,8 +1,9 @@
-package org.jikisan.cmpecommerceapp.viewmodel
+package org.jikisan.cmpecommerceapp.viewmodel.productdetails
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.jikisan.cmpecommerceapp.model.Product
+import org.jikisan.cmpecommerceapp.viewmodel.ProductApi
 
 class ProductDetailRepository(private val productApi: ProductApi) {
 
