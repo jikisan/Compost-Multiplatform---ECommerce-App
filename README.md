@@ -1,14 +1,27 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop.
+# 🛒 CMP E-Commerce App
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+A cross-platform e-commerce sample application built with **Jetpack Compose Multiplatform (CMP)**. This project demonstrates clean MVVM architecture, asynchronous data handling with Kotlin `Flow`, and integration with the public [Fake Store API](https://fakestoreapi.com/).
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+---
 
+## 🚀 Features
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+- 🔄 Fetch product listings from the Fake Store API  
+- 🔍 View product details  
+- 🛍️ Add/remove products from cart  
+- 🧠 MVVM architecture with `ViewModel` and `StateFlow`  
+- 🧑‍💻 Built using **Jetpack Compose Multiplatform** for Android & Desktop (iOS optional)  
+- 🧪 Clean architecture principles for scalability and testability  
+
+---
+
+## 🧱 Tech Stack
+
+| Layer         | Tech Used                                        |
+|---------------|--------------------------------------------------|
+| UI            | Jetpack Compose (Multiplatform)                  |
+| State Mgmt    | ViewModel + StateFlow                            |
+| Data Layer    | Kotlinx Serialization + Ktor HTTP Client         |
+| Architecture  | MVVM with clean separation of concerns           |
+| Build Tool    | Gradle (Kotlin DSL)                              |
+
