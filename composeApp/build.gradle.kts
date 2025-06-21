@@ -72,9 +72,9 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
 
             //Koin
-//            implementation("io.insert-koin:koin-core:4.1.0")
-//            implementation("io.insert-koin:koin-compose-viewmodel:4.1.0")
-//            implementation("io.insert-koin:koin-compose:4.1.0")
+            implementation("io.insert-koin:koin-core:4.1.0")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.0.0")
+            implementation("io.insert-koin:koin-compose:4.1.0")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
